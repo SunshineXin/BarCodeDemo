@@ -5,19 +5,51 @@
     android:background="@android:color/white"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan result："
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_scan_result"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+    
     <Button
         android:id="@+id/btn_scan_barcode"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Zxing BarCode" />
-    
-    
+        android:text="Open camera" />
+
+
     <Button
-        android:id="@+id/btn_add_qrcode"
+        android:id="@+id/btn_zxing"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Generate QRcode" />
-    
+        android:text="Generate BarCode(CODE_128)" />
+
+    <Button
+        android:id="@+id/btn_jbarcode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Generate BarCode(EAN_13)" />
+    <Button
+        android:id="@+id/btn_qrcode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="Generate QRCode" />
 
 </LinearLayout>

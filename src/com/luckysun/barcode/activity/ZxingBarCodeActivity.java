@@ -21,7 +21,7 @@ import com.zxing.encoding.EncodingHandler;
  */
 public class ZxingBarCodeActivity extends Activity 
 {
-	private TextView resultTextView;
+	
 	private EditText qrStrEditText;
 	private ImageView qrImgImageView;
 	
@@ -30,20 +30,8 @@ public class ZxingBarCodeActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_zxing);
         
-        resultTextView = (TextView) this.findViewById(R.id.tv_scan_result);
         qrStrEditText = (EditText) this.findViewById(R.id.et_qr_string);
         qrImgImageView = (ImageView) this.findViewById(R.id.iv_qr_image);
-        
-        Button scanBarCodeButton = (Button) this.findViewById(R.id.btn_scan_barcode);
-        scanBarCodeButton.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				//打开扫描界面扫描条形码或二维码
-				Intent openCameraIntent = new Intent(ZxingBarCodeActivity.this, CaptureActivity.class);
-				startActivityForResult(openCameraIntent, 0);
-			}
-		});
         
         Button generateQRCodeButton = (Button) this.findViewById(R.id.btn_add_qrcode);
         generateQRCodeButton.setOnClickListener(new OnClickListener() {
@@ -66,15 +54,4 @@ public class ZxingBarCodeActivity extends Activity
 		});
     }
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		//处理扫描结果（在界面上显示）
-		if (resultCode == RESULT_OK) {
-			Bundle bundle = data.getExtras();
-			String scanResult = bundle.getString("result");
-			resultTextView.setText(scanResult);
-		}
-	}
-	
 }

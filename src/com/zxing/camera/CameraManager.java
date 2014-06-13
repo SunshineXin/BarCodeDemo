@@ -23,6 +23,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
@@ -131,7 +132,7 @@ public final class CameraManager {
 
       //FIXME
  //     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-      //ÊÇ·ñÊ¹ÓÃÇ°µÆ
+      //ï¿½Ç·ï¿½Ê¹ï¿½ï¿½Ç°ï¿½ï¿½
 //      if (prefs.getBoolean(PreferencesActivity.KEY_FRONT_LIGHT, false)) {
 //        FlashlightManager.enableFlashlight();
 //      }
@@ -323,4 +324,21 @@ public final class CameraManager {
 		return context;
 	}
 
+	private Parameters parameter;
+	public void openLight() {
+		if (camera != null) {
+			parameter = camera.getParameters();
+			parameter.setFlashMode(Parameters.FLASH_MODE_TORCH);
+			camera.setParameters(parameter);
+		}
+	}
+
+	public void offLight() {
+		if (camera != null) {
+			parameter = camera.getParameters();
+			parameter.setFlashMode(Parameters.FLASH_MODE_OFF);
+			camera.setParameters(parameter);
+		}
+	}
+	
 }
