@@ -28,7 +28,7 @@ public class ZxingBarCodeActivity extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.layout_zxing);
         
         resultTextView = (TextView) this.findViewById(R.id.tv_scan_result);
         qrStrEditText = (EditText) this.findViewById(R.id.et_qr_string);
